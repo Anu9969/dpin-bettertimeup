@@ -21,14 +21,15 @@ model User{
 }
 
 model Website {
-  id      String      @id      @default(uuid())
-  url     String
-  userId  String
-  ticks   WebsiteTick[]
+  id          String      @id      @default(uuid())
+  url         String
+  userId      String
+  ticks       WebsiteTick[]
+  disabled    Boolean     @default(false)
 }
 
 model Validator {
-  id           String      @id       default(uuid())
+  id           String      @id       @default(uuid())
   publicKey    String
   location     String
   ip           String
@@ -42,9 +43,13 @@ model WebsiteTick{
   createdAt     DateTime
   status        WebsiteStatus
   latency       Float
-  website       website     @relation(fields: {websiteId}, references: {id})
-  validaor      Validator   @relation(fields: {validator}, references: {id})
+  website       Website     @relation(fields: [websiteId], references: [id])
+  validator     Validator   @relation(fields: [validatorId], references: [id])
+}
 
+enum WebsiteStatus {
+  UP
+  DOWN
 }
  
 

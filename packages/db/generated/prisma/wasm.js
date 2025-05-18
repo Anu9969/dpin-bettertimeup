@@ -120,9 +120,53 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email'
+};
+
+exports.Prisma.WebsiteScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  userId: 'userId',
+  disabled: 'disabled'
+};
+
+exports.Prisma.ValidatorScalarFieldEnum = {
+  id: 'id',
+  publicKey: 'publicKey',
+  location: 'location',
+  ip: 'ip'
+};
+
+exports.Prisma.WebsiteTickScalarFieldEnum = {
+  id: 'id',
+  websiteId: 'websiteId',
+  validatorId: 'validatorId',
+  createdAt: 'createdAt',
+  status: 'status',
+  latency: 'latency'
+};
+
+exports.Prisma.SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+exports.WebsiteStatus = exports.$Enums.WebsiteStatus = {
+  UP: 'UP',
+  DOWN: 'DOWN'
+};
 
 exports.Prisma.ModelName = {
-
+  User: 'User',
+  Website: 'Website',
+  Validator: 'Validator',
+  WebsiteTick: 'WebsiteTick'
 };
 
 /**
